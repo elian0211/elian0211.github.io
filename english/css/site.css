@@ -1,0 +1,272 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px; 
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+ 
+.col-imgitem {
+    margin: 20px 0;
+}
+
+.i {
+    margin: 0 auto;
+    width: 298px;
+    height: 210px;
+    text-align: center;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    box-shadow: 0px 10px 10px #aaa;
+}
+
+    .i.focus {
+        transform: rotateY(180deg);
+        transition: 1.5s;
+    }
+
+    .i.focus2 {
+        transform: rotateY(360deg);
+        transition: 1.5s;
+    }
+
+    .i .item {
+        position: absolute;
+    }
+
+
+    .i .img, .i .word {
+        margin: 0 auto;
+        vertical-align: middle;
+        text-align: center;
+        border: solid 4px #e1e7ea;
+        box-sizing: content-box;
+        cursor: pointer;
+        width: 298px;
+        height: 210px;
+    }
+
+    .i .img {
+        display: block;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        display: block;
+    }
+
+    .i.focus .word {
+        display: block;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        line-height: 210px;
+        background: #fff;
+        font-size: 30px;
+        border: 2px solid #ddd;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        transform: rotateY(180deg);
+    }
+
+.img img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.switch label {
+    line-height: 31px;
+    height: 31px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.mui-switch {
+    width: 52px;
+    height: 31px;
+    position: relative;
+    border: 1px solid #dfdfdf;
+    background-color: #fdfdfd;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-clip: content-box;
+    display: inline-block;
+    -webkit-appearance: none;
+    user-select: none;
+    outline: none;
+}
+
+    .mui-switch:before {
+        content: '';
+        width: 29px;
+        height: 29px;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        border-radius: 20px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .mui-switch:checked {
+        border-color: #64bd63;
+        box-shadow: #64bd63 0 0 0 16px inset;
+        background-color: #64bd63;
+    }
+
+        .mui-switch:checked:before {
+            left: 21px;
+        }
+
+    .mui-switch.mui-switch-animbg {
+        transition: background-color ease 0.4s;
+    }
+
+        .mui-switch.mui-switch-animbg:before {
+            transition: left 0.3s;
+        }
+
+        .mui-switch.mui-switch-animbg:checked {
+            box-shadow: #dfdfdf 0 0 0 0 inset;
+            background-color: #64bd63;
+            transition: border-color 0.4s, background-color ease 0.4s;
+        }
+
+            .mui-switch.mui-switch-animbg:checked:before {
+                transition: left 0.3s;
+            }
+
+    .mui-switch.mui-switch-anim {
+        transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+    }
+
+        .mui-switch.mui-switch-anim:before {
+            transition: left 0.3s;
+        }
+
+        .mui-switch.mui-switch-anim:checked {
+            box-shadow: #64bd63 0 0 0 16px inset;
+            background-color: #64bd63;
+            transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+        }
+
+            .mui-switch.mui-switch-anim:checked:before {
+                transition: left 0.3s;
+            }
+
+ 
+
+.buttons {
+    height: 32px;
+    line-height: 32px;
+    position: relative;
+    text-align:right; padding-right:30px;
+}
+
+    .buttons label {
+        margin: 0 10px 0 0;
+    }
+
+    .buttons input {
+        vertical-align: middle;
+    }
+
+
+    .buttons img, .buttons a {
+        height: 32px;
+        line-height: 32px;
+    }
+#imglist {
+margin-top:100px;}

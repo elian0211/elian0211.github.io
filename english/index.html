@@ -1,0 +1,152 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <script>
+         function doNothing(){  
+        window.event.returnValue=false;  
+        return false;  
+    }  
+    </script>
+</head>
+<body oncontextmenu="doNothing()">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="/">&nbsp;</a>
+
+                <div class="buttons">
+
+                    <label><input class="mui-switch" type="checkbox" id="cbChange"> </label>
+                    <label><a id="btnRefresh" href="javascript:;"> <img src="img/refresh.png" /></a> </label>
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+             
+            <div class="row" id="imglist">
+
+            </div>
+
+
+        </main>
+    </div>
+
+    
+
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0"></script>
+
+
+    <script type="text/template" id="template">
+        <div class="col-4 col-imgitem">
+            <div class="i word">
+                <div class="img item">
+                    <img data-id="img" src="#" />
+                </div>
+                <div class="word item">
+                    <strong data-id="text"></strong>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <script>
+        (function ($, owner) {
+            var list;
+            var tpl = $("#template").html();
+            $.get("data_20200217.js", function (data) {
+                rander(data);
+                list = data;
+            });
+
+
+            //style :0  showpic  1 showword
+            var rander = function (arr, style, callback) {
+                var rnd = arr.sort(() => Math.random() - 0.5);
+
+                var html = new Array();
+                for (var i in rnd) {
+                    var item = rnd[i];
+                    var $t = $("<div></div>");
+                    $t.append(tpl);
+
+                    if (style == 1) {
+                        $t.find('.i').addClass('focus');
+                    }
+                    $t.find('img').attr('src', item.src);
+                    $t.find('strong').text(item.title);
+                    html.push($t.html());
+                }
+                $("#imglist").hide().html(html.join("")).fadeIn(1000);
+                if (callback && typeof callback == 'function') {
+                    callback();
+                }
+            }
+
+            var refresh = function (callback) {
+                rander(list, callback)
+            }
+
+            var showword = function (t) {
+                $(t).addClass("focus");
+            }
+
+
+            var showpic = function (t) {
+                var to = $(t).data("timeout");
+                if (to != null) {
+                    window.clearTimeout(to);
+                }
+                $(t).addClass("focus2");
+                window.clearTimeout(to);
+                to = window.setTimeout(function () {
+                    $(t).removeClass("focus2").removeClass("focus");
+                }, 1200);
+                $(t).data("timeout", to);
+            }
+
+            $("#imglist").on('click touch', '.i', function () {
+                if ($(this).is('.focus')) {
+                    showpic(this);
+                } else {
+                    showword(this);
+                }
+            });
+
+            $("#cbChange").on('change', function () {
+                var cb = $(this).is(":checked");
+
+                if (cb) {
+                    refresh(1);
+                } else {
+                    refresh(0);
+                }
+            });
+
+            $("#btnRefresh").on('click', function () {
+                var cb = $("#cbChange").is(":checked"); 
+                if (cb) {
+                    refresh(1);
+                } else {
+                    refresh(0);
+                }
+            })
+
+        })(jQuery, this);
+
+
+    </script>
+</body>
+</html>
